@@ -1,7 +1,7 @@
+import { ChangeEvent, FormEvent, useState, VFC } from 'react'
+import { todoVar } from '../cache'
 import { useReactiveVar } from '@apollo/client'
 import Link from 'next/link'
-import { VFC, useState, FormEvent, ChangeEvent } from 'react'
-import { todoVar } from '../cache'
 
 export const LocalStateA: VFC = () => {
   const [input, setInput] = useState('')
@@ -11,6 +11,7 @@ export const LocalStateA: VFC = () => {
     todoVar([...todoVar(), { title: input }])
     setInput('')
   }
+
   return (
     <>
       <p className="mb-3 font-bold">makeVar</p>
@@ -35,7 +36,7 @@ export const LocalStateA: VFC = () => {
         />
         <button
           disabled={!input}
-          className="disabled:opacity-40 mb-3 py-1 px-3 text-white bg-indigo-600 hover-700 rounded-2xl focus:outline-none"
+          className="disabled:opacity-40 mb-3 py-1 px-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-2xl focus:outline-none"
           type="submit"
         >
           Add new state
