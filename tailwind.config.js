@@ -1,12 +1,15 @@
 module.exports = {
   // どの階層にあるファイルに適用するか
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+  content: [
+    './pages/**/*.{js,ts,tsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: false,
   theme: {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: { opacity: ['disabled'] },
   },
   plugins: [],
 }
