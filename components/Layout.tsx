@@ -1,12 +1,12 @@
+import { ReactNode, VFC } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { ReactNode, VFC } from 'react'
+import Image from 'next/image'
 
 interface Props {
   children: ReactNode
   title: string
 }
-
 export const Layout: VFC<Props> = ({
   children,
   title = 'Welcome to Nextjs',
@@ -23,15 +23,15 @@ export const Layout: VFC<Props> = ({
               <Link href="/">
                 <a
                   data-testid="home-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Home
                 </a>
               </Link>
               <Link href="/local-state-a">
                 <a
-                  data-testid="makebar-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  data-testid="makevar-nav"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   makeVar
                 </a>
@@ -39,7 +39,7 @@ export const Layout: VFC<Props> = ({
               <Link href="/hasura-main">
                 <a
                   data-testid="fetchpolicy-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   fetchPolicy(Hasura)
                 </a>
@@ -47,7 +47,7 @@ export const Layout: VFC<Props> = ({
               <Link href="/hasura-crud">
                 <a
                   data-testid="crud-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   CRUD(Hasura)
                 </a>
@@ -55,7 +55,7 @@ export const Layout: VFC<Props> = ({
               <Link href="/hasura-ssg">
                 <a
                   data-testid="ssg-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   SSG+ISR(Hasura)
                 </a>
@@ -63,7 +63,7 @@ export const Layout: VFC<Props> = ({
               <Link href="/hooks-memo">
                 <a
                   data-testid="memo-nav"
-                  className="text-grey-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   custom hook + memo
                 </a>
@@ -83,13 +83,8 @@ export const Layout: VFC<Props> = ({
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img
-            src="/vercel.svg"
-            alt="Vercel Logo"
-            width={72}
-            height={16}
-            className="h-4 ml-2"
-          />
+          {/* <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" /> */}
+          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
       </footer>
     </div>
