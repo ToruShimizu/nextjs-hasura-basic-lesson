@@ -14,3 +14,14 @@ const createApolloClient = () => {
     cache: new InMemoryCache()
   })
 }
+
+export const initializeApollo = (initialState = null) => {
+  // 左辺がnullまたはundefinedの場合は
+  const _apolloClient = apolloClient ?? createApolloClient()
+  
+  // SSG、SSRなどのサーバーサイドでレンダリングされる場合は新規で生成したclientを返す
+  if(typeof window === 'undefined')return _apolloClient
+// クライアントサイドの場合
+  if(!apolloClient) apolloClient = _apolloClient
+  return _apolloClient
+}
