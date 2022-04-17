@@ -7,7 +7,13 @@ import { Layout } from '../components/Layout'
 
 const FetchMain: VFC = () => {
   const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
-    fetchPolicy: 'network-only',
+    // useQueryが実行されるたびにfetchする
+    // fetchPolicy: 'network-only',
+    // 通信中は既存のキャッシュを表示する
+    fetchPolicy: 'cache-and-network',
+    // 一旦取得したデータがキャッシュにある場合はキャッシュを読みにいく。常に最初に取得したデータしか見えない。頻繁に変わる場合は不向き
+    // fetchPolicy: 'cache-first',
+    // fetchPolicy: 'no-cache',
   })
   if (error)
     return (
